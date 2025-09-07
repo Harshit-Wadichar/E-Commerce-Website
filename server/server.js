@@ -15,6 +15,9 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/items', require('./routes/items'));
 app.use('/api/cart', require('./routes/cart'));
 
+// Basic health check
+app.get('/api/health', (req, res) => res.json({ ok: true, ts: Date.now() }));
+
 // Global error handler
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
