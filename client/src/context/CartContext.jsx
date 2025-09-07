@@ -8,10 +8,16 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const { user, token } = useContext(AuthContext);
 
-  // Fetch cart when user logs in
+  // Update cart whenever user or token changes (e.g., login/logout)
   useEffect(() => {
     const fetchCart = async () => {
       if (token) {
+        // Optional: Merge guest cart on login
+        const guestCart = JSON.parse(localStorage.getItem('guestCart') || '[]');
+        if (guestCart.length > 0) {
+          await mergeLocalCart(guestCart);
+          localStorage.removeItem('guestCart');
+        }
         try {
           const res = await getCart();
           setCart(res.data);
@@ -23,7 +29,8 @@ export const CartProvider = ({ children }) => {
       }
     };
     fetchCart();
-  }, [token]);
+    // eslint-disable-next-line
+  }, [token, user]);
 
   const addItem = async (itemId, qty = 1) => {
     if (!token) return;

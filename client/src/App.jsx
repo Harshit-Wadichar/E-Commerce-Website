@@ -17,11 +17,15 @@ function App() {
           <Navbar />
           <div className="container mx-auto py-8">
             <Routes>
-              <Route path="/" element={<Items />} />
+              <Route path="/" element={ <ProtectedRoute>
+                
+                  <Items />
+                </ProtectedRoute>} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/cart" element={
                 <ProtectedRoute>
+                
                   <Cart />
                 </ProtectedRoute>
               } />
