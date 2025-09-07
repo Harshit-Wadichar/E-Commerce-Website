@@ -6,7 +6,7 @@ export default function ItemCard({ item }) {
 
   return (
     <div className="bg-white rounded shadow p-4 flex flex-col">
-      <img src={item.image} alt={item.title} className="h-48 w-full object-cover mb-2 rounded" />
+     
       <h3 className="font-bold text-lg">{item.title}</h3>
       <p className="text-gray-600 mb-2">{item.description}</p>
       <div className="flex justify-between items-center mt-auto">

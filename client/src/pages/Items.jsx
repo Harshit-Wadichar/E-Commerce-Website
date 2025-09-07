@@ -5,10 +5,14 @@ import ItemCard from "../components/ItemCard";
 // Example categories. In real app, fetch from server or define dynamically.
 const CATEGORY_OPTIONS = [
   "All",
-  "Electronics",
-  "Fashion",
-  "Books",
-  "Home",
+  "clothing",
+  "footwear",
+  "electronics",
+  "home",
+  "accessories",
+  "bags",
+  "furniture",
+  "kitchen"
 ];
 
 export default function Items() {
@@ -93,9 +97,7 @@ export default function Items() {
         <option value="price_asc">Price &#8593;</option>
         <option value="price_desc">Price &#8595;</option>
       </select>
-      <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" type="submit">
-        Filter
-      </button>
+     
     </form>
   );
 
@@ -125,7 +127,7 @@ export default function Items() {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Shop Items</h2>
+      <h2 className="text-2xl font-bold mb-4">Shop Items | The Listing Page</h2>
       {filterBar}
       {loading ? (
         <div>Loading...</div>

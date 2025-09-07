@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { CartContext } from "../context/CartContext";
+import { Home, ShoppingCart, User } from "lucide-react";
 
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
@@ -18,14 +19,14 @@ export default function Navbar() {
         
         {user ? (
           <>
-           <Link to="/" className="">Home</Link>
+           <Link to="/" className=""> <div className="flex flex-row"><Home className="h-6 w-6 text-white mr-1" />Home</div> </Link>
         <Link to="/cart" className="relative">
-          Cart
+            <div className="flex flex-row"> <ShoppingCart className="h-6 w-6 text-white mr-1" />Cart</div>
           {cart.length > 0 && (
             <span className="absolute -top-2 -right-3 bg-red-500 rounded-full px-2 text-xs">{cart.length}</span>
           )}
         </Link>
-            <span className="hidden sm:block">{user.name}</span>
+            <span className="hidden sm:block bg-black p-2 rounded-3xl">  <div className="flex flex-row"> <User className="h-6 w-6 text-white mr-1" />{user.name}</div></span>
             <button onClick={() => { logout(); navigate("/login"); }} className="bg-white text-blue-600 px-3 py-1 rounded">Logout</button>
           </>
         ) : (
