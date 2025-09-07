@@ -1,0 +1,61 @@
+# 🛒 MERN E-Commerce Platform
+
+A full-stack **E-Commerce web application** built with the **MERN stack** (MongoDB, Express, React, Node.js) and styled with **Tailwind CSS**.  
+This app provides **user authentication, product browsing, cart management, and filtering** functionality.
+
+---
+
+## 🚀 Features
+
+### 🔐 Authentication
+- User signup & login with **JWT**.
+- Secure password hashing with **bcrypt**.
+- Persistent session storage with localStorage.
+
+### 🛍️ Products
+- Browse products with **search, category, and price filters**.
+- Sort items by price or latest added.
+
+### 🛒 Cart
+- Add items to cart.
+- Update quantity or remove items.
+- Merge local cart with user cart after login.
+
+### 🎨 Frontend
+- Built with **React + Vite**.
+- Styled using **Tailwind CSS** for a modern, responsive UI.
+- Protected routes for authenticated pages.
+- Context API for authentication & cart state management.
+
+---
+
+## 🏗️ Tech Stack
+
+- **Frontend:** React (Vite), Tailwind CSS  
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB (Mongoose ODM)  
+- **Auth:** JWT + bcrypt  
+
+---
+
+## 📂 Project Structure
+
+backend(Server)/
+├── config/ # Database connection
+├── middleware/ # Auth middleware
+├── models/ # Mongoose schemas
+├── routes/ # Express routes
+├── seed/ # Seeder scripts
+└── server.js # Express server entrypoint
+
+frontend(client)/
+├── src/
+│ ├── api/ # Axios API helpers
+│ ├── components/ # Navbar, ItemCard, ProtectedRoute
+│ ├── context/ # AuthContext, CartContext
+│ ├── pages/ # Login, Signup, Items, Cart
+│ ├── App.jsx
+│ ├── main.jsx
+│ └── index.css
+├── package.json
+└── tailwind.config.js
